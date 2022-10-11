@@ -1,9 +1,9 @@
-import TryGlasses from "./BaiTapThuKinh/TryGlasses";
+import TryGlassesApp from "./BaiTapThuKinh/TryGlassesApp";
 
 function App() {
    return (
       <>
-         <TryGlasses />
+         <TryGlassesApp />
       </>
    );
 }

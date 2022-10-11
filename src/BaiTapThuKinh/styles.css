@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tryGlasses {
+    background-image: url("../../public/glassesImage/background.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 0;
+}
+
+.tryGlasses__content {
+    position: relative;
+    z-index: 1;
+}
+
+.tryGlasses__title {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.tryGlasses__model {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    margin: auto;
+}
+
+.model-left,
+.model-right {
+    background-image: url("../../public/glassesImage/model.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.model-left img,
+.model-right img {
+    display: inline-block;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.6;
+}
+
+.tryGlasses__list {
+    width: 50%;
+    margin: auto;
+    background-color: #fff;
+
+}
+
+.tryGlasses__item {
+    display: inline-block;
+}
+
+.tryGlasses__item button {
+    border: 1px solid #706c6c;
+    background-color: transparent;
+    border-radius: 3px;
+
+    transition: all 0.3s ease;
+}
+
+.tryGlasses__item button:hover {
+    border-color: palevioletred;
+    background-color: powderblue;
+}
+
+.tryGlasses__text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(205, 133, 63, 0.4);
+}
+
+.tryGlasses__text h4 {
+    font-size: 1.25rem;
+    color: blue;
+}
+
+.tryGlasses__text p {
+    font-size: 0.8rem;
+    color: #fff;
+}
