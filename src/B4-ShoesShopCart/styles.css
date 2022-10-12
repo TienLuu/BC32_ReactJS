@@ -5,5 +5,57 @@
 }
 
 main {
-    height: 100vh;
+    min-height: 100vh;
+}
+
+.header__cart {
+    position: relative;
+    margin-left: 1rem;
+}
+
+.header__cart button {
+    padding: 0;
+}
+
+.header__cart i {
+    font-size: 1.6rem;
+}
+
+.header__cart .cart--number {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    font-size: 12px;
+    color: #fff;
+    padding: 2px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.table tr,
+.cart__quantity span {
+    vertical-align: middle;
+}
+
+.cart__quantity .quantity--decrease,
+.cart__quantity .quantity--increase {
+    padding: 0 0.25rem;
+}
+
+.cart__total {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.1rem;
+}
+
+.cart__trash:hover i,
+.quantity--decrease:hover i,
+.quantity--increase:hover i {
+    color: red;
+}
+
+.cart-empty {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }

@@ -1,7 +1,26 @@
 import React, { Component } from "react";
+import Cart from "./Cart";
 
 export default class Header extends Component {
+   constructor(props) {
+      super(props);
+
+      this.state = {
+         isOpen: false,
+      };
+   }
+
+   handleToggleModal = () => {
+      this.setState((state) => ({ isOpen: !state.isOpen }));
+   };
+
    render() {
+      const {
+         carts,
+         onHandleClearCarts,
+         onHandleDeleteCartItem,
+         onHanldeChangeQuantity,
+      } = this.props;
       return (
          <header>
             <nav
@@ -42,10 +61,32 @@ export default class Header extends Component {
                            </a>
                         </li>
                      </ul>
+                     <div className="header__cart">
+                        <button
+                           type="button"
+                           className="btn"
+                           onClick={this.handleToggleModal}
+                        >
+                           <i className="bi bi-cart3 text-white"></i>
+                        </button>
+                        <div className="cart--number">
+                           {carts.reduce((total, item) => {
+                              return total + item.quantity;
+                           }, 0)}
+                        </div>
+                     </div>
                      <div />
                   </div>
                </div>
             </nav>
+            <Cart
+               isOpen={this.state.isOpen}
+               onClose={this.handleToggleModal}
+               carts={carts}
+               onHandleClearCartsTransit={onHandleClearCarts}
+               onHandleDeleteCartItemTransit={onHandleDeleteCartItem}
+               onHanldeChangeQuantityTransit={onHanldeChangeQuantity}
+            />
          </header>
       );
    }
