@@ -4,6 +4,7 @@ import data from "./data.json";
 import Footer from "./Footer";
 import Header from "./Header";
 import PropductList from "./PropductList";
+import swal from "sweetalert";
 
 export default class ShoesShop extends Component {
    constructor() {
@@ -30,8 +31,37 @@ export default class ShoesShop extends Component {
       }
    };
 
+   handlePurchasesSuccess = () => {
+      swal({
+         title: "Chuyển hướng đến trang thanh toán",
+         text: "You clicked the button!",
+         icon: "success",
+         button: "Aww yiss!",
+      }).then(() => {
+         // do something...
+         this.setState({ carts: [] });
+      });
+   };
+
    handleClearCarts = () => {
-      this.setState({ carts: [] });
+      swal({
+         title: "Are you sure?",
+         text: "Once deleted, you will not be able...!",
+         icon: "warning",
+         buttons: true,
+         dangerMode: true,
+      }).then(async (willDelete) => {
+         if (willDelete) {
+            await swal("Poof! Your carts has been deleted!", {
+               icon: "success",
+            });
+
+            // do something...
+            this.setState({ carts: [] });
+         } else {
+            swal("Dannn!");
+         }
+      });
    };
 
    handleDeleteCartItem = (productId) => {
@@ -65,6 +95,7 @@ export default class ShoesShop extends Component {
                onHandleClearCarts={this.handleClearCarts}
                onHandleDeleteCartItem={this.handleDeleteCartItem}
                onHanldeChangeQuantity={this.handleChangeQuantity}
+               onHandlePurchasesSuccess={this.handlePurchasesSuccess}
             />
 
             <main className="main py-5 bg-light">

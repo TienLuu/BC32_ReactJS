@@ -2,14 +2,9 @@ import React, { Component } from "react";
 
 export default class CartItem extends Component {
    render() {
-      const {
-         name,
-         image,
-         quantity,
-         price,
-         id,
-         onHanldeChangeQuantityTransit,
-      } = this.props.product;
+      const { name, image, quantity, price, id } = this.props.product;
+      const { onHanldeChangeQuantityTransit } = this.props;
+
       return (
          <>
             <tr>
@@ -25,14 +20,14 @@ export default class CartItem extends Component {
                <td className="cart__quantity">
                   <button
                      className="btn quantity--decrease"
-                     onClick={onHanldeChangeQuantityTransit(id, -1)}
+                     onClick={() => onHanldeChangeQuantityTransit(id, -1)}
                   >
                      <i className="bi bi-caret-left"></i>
                   </button>
                   <span>{quantity}</span>
                   <button
                      className="btn quantity--increase"
-                     onClick={onHanldeChangeQuantityTransit(id, 1)}
+                     onClick={() => onHanldeChangeQuantityTransit(id, 1)}
                   >
                      <i className="bi bi-caret-right"></i>
                   </button>

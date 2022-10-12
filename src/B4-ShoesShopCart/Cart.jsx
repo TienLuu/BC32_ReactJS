@@ -10,6 +10,7 @@ export default class Cart extends Component {
          onHandleClearCartsTransit,
          onHandleDeleteCartItemTransit,
          onHanldeChangeQuantityTransit,
+         onHandlePurchasesSuccessTransit,
          carts,
       } = this.props;
       return (
@@ -67,9 +68,9 @@ export default class Cart extends Component {
                                     );
                                  })
                               ) : (
-                                 <div className="cart-empty mt-2">
+                                 <tr className="cart-empty mt-2">
                                     Không có sản phẩm trong giỏ hàng
-                                 </div>
+                                 </tr>
                               )}
                            </tbody>
                         </table>
@@ -87,9 +88,9 @@ export default class Cart extends Component {
                         <button
                            type="button"
                            className="btn btn-secondary"
-                           onClick={onHandleClearCartsTransit}
+                           onClick={onHandlePurchasesSuccessTransit}
                         >
-                           Purchase
+                           Purchases
                         </button>
                         <button
                            type="button"

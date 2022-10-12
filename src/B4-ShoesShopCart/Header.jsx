@@ -20,6 +20,7 @@ export default class Header extends Component {
          onHandleClearCarts,
          onHandleDeleteCartItem,
          onHanldeChangeQuantity,
+         onHandlePurchasesSuccess,
       } = this.props;
       return (
          <header>
@@ -86,6 +87,7 @@ export default class Header extends Component {
                onHandleClearCartsTransit={onHandleClearCarts}
                onHandleDeleteCartItemTransit={onHandleDeleteCartItem}
                onHanldeChangeQuantityTransit={onHanldeChangeQuantity}
+               onHandlePurchasesSuccessTransit={onHandlePurchasesSuccess}
             />
          </header>
       );
