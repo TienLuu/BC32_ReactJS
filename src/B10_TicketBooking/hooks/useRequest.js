@@ -1,0 +1,22 @@
+import { useState, useEffect } from "react";
+
+const useRequest = (fn) => {
+   const [data, setData] = useState({});
+   useEffect(() => {
+      const fetchData = async () => {
+         try {
+            const data = await fn();
+            console.log(data);
+            setData(data);
+         } catch (error) {
+            console.log(error);
+         }
+      };
+
+      fetchData();
+   }, []);
+
+   return { data };
+};
+
+export default useRequest;

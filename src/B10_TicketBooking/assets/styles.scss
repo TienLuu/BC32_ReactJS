@@ -1,0 +1,277 @@
+:root {
+   --clr-bg: #333;
+   --clr-white: #fff;
+
+   --clr-seatSelected: rgb(239, 191, 62);
+   --clr-seatSelect: rgb(65, 195, 144);
+   --clr-border: rgb(198, 198, 201);
+}
+
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   background: #333 !important;
+   text-align: center;
+   color: #fff !important;
+}
+
+input {
+   padding: 5px 10px;
+   min-width: 200px;
+}
+
+input[type="name"] {
+   text-overflow: ellipsis;
+}
+
+.ticket {
+   width: 90%;
+   margin: 50px auto;
+   display: flex;
+   justify-content: space-between;
+}
+
+.ticket__userInfo div {
+   text-align: left;
+   margin-bottom: 20px;
+}
+
+.ticket__userInfo div > *:first-child {
+   min-width: 50px;
+   margin-right: 15px;
+}
+
+.ticket__seatList {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+
+   position: relative;
+}
+
+.ticket__seatChoice {
+   width: 100%;
+}
+
+.ticket__typeChose {
+   margin-bottom: 30px;
+}
+
+.ticket__typeChose span {
+   margin: 0 20px;
+}
+
+.seatSelected::before {
+   content: "";
+   display: inline-block;
+   width: 15px;
+   height: 15px;
+
+   background: var(--clr-seatSelect);
+   margin-right: 9px;
+}
+
+.seatReserved::before {
+   content: "";
+   display: inline-block;
+   width: 15px;
+   height: 15px;
+
+   background: var(--clr-seatSelected);
+   margin-right: 9px;
+}
+
+.seatEmpty::before {
+   content: "";
+   display: inline-block;
+   width: 15px;
+   height: 15px;
+
+   background: var(--clr-border);
+   margin-right: 9px;
+}
+
+.ticket__seatList {
+   position: relative;
+   width: 100%;
+   height: 300px;
+   margin: 0 auto;
+
+   border: solid 5px transparent;
+   border-color: gray transparent transparent transparent;
+   border-radius: 50%/60px 60px 0 0;
+
+   /* overflow: hidden; */
+}
+
+.screen-light {
+   position: absolute;
+   left: 0;
+   top: 0;
+   inset: 0;
+   border-radius: inherit;
+
+   background: radial-gradient(
+      at 50% 0,
+      rgba(31, 73, 125, 0.9),
+      transparent 100%
+   );
+}
+
+.screen-light::before {
+   content: "";
+   position: absolute;
+   left: 0;
+   top: 0;
+   inset: 0;
+
+   border: 10px solid red;
+   border-top: none;
+   border-left: 40px solid var(--clr-bg);
+   border-right: 40px solid var(--clr-bg);
+   border-bottom: 300px solid transparent;
+}
+
+.wrapper {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+
+   min-height: fit-content;
+   transform: translateX(-50%);
+
+   z-index: 99;
+}
+
+.seatLine {
+   position: relative;
+   display: grid;
+   grid-template-columns: repeat(13, 1fr);
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+   margin-bottom: 20px;
+}
+
+.colNumber {
+   width: 40px;
+}
+
+.seat {
+   position: relative;
+   display: inline-block;
+   width: 40px;
+   height: 27px;
+   border-radius: 6px;
+   background: var(--clr-border);
+   cursor: pointer;
+}
+
+.seat::before {
+   content: "";
+   position: absolute;
+   left: 50%;
+   bottom: -12px;
+   width: 32px;
+   height: 9px;
+   border-radius: 3px;
+   background: var(--clr-border);
+   transform: translateX(-50%);
+}
+
+.seat.active {
+   background: var(--clr-seatSelect);
+}
+
+.seat.active::before {
+   background: var(--clr-seatSelect);
+}
+
+.seat.active.disabled {
+   pointer-events: none;
+}
+
+.seat.selected {
+   background: var(--clr-seatSelected);
+   cursor: default;
+}
+
+.seat.selected::before {
+   background: var(--clr-seatSelected);
+}
+
+// .lineA::before {
+//    content: "A";
+//    position: absolute;
+//    left: -36px;
+
+//    font-size: 24px;
+//    color: var(--clr-white);
+// }
+
+.lineB::before {
+   content: "B";
+   position: absolute;
+   left: -36px;
+
+   font-size: 24px;
+   color: var(--clr-white);
+}
+
+.lineC::before {
+   content: "C";
+   position: absolute;
+   left: -36px;
+
+   font-size: 24px;
+   color: var(--clr-white);
+}
+
+.lineD::before {
+   content: "D";
+   position: absolute;
+   left: -36px;
+
+   font-size: 24px;
+   color: var(--clr-white);
+}
+
+.lineE::before {
+   content: "E";
+   position: absolute;
+   left: -36px;
+
+   font-size: 24px;
+   color: var(--clr-white);
+}
+
+.ticket__details,
+.ticket__userInfo {
+   position: relative;
+   padding: 30px 40px;
+}
+
+.ticket__details div {
+   text-align: left;
+   margin-bottom: 24px;
+}
+
+.ticket__details div span {
+   display: inline-block;
+}
+
+.ticket__details div > *:first-child {
+   min-width: 50px;
+   margin-right: 15px;
+}
+
+.ticket__purchase p {
+   margin-bottom: 24px;
+}
