@@ -49,8 +49,7 @@ const SeatItem = ({ number, isSeat, seatInfo }) => {
       }
    }, [seats]);
 
-   console.log("SeatItem redner", isSelected);
-
+   // console.log("SeatItem redner", isSelected);
    return (
       <div
          className={cn(

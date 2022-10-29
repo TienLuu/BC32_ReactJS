@@ -36,7 +36,7 @@ const UserInfo = () => {
       setUserSelect((state) => ({ ...state, [name]: value }));
    };
 
-   console.log("User render");
+   // console.log("User render");
 
    return (
       <>

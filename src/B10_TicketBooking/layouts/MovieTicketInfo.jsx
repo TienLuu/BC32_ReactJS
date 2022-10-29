@@ -36,8 +36,7 @@ const MovieTicketInfo = ({ onPurchaseSuccess, data }) => {
       dispatch(purchase());
    };
 
-   console.log("Movie render");
-
+   // console.log("Movie render");
    return (
       <>
          <div className="ticket__details">

@@ -17,8 +17,7 @@ const TicketBooking = () => {
       setData(data);
    };
 
-   console.log("TicketBooking render");
-
+   // console.log("TicketBooking render");
    return (
       <div>
          <h1>CHOOSE SEAT</h1>

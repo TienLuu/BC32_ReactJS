@@ -1,7 +1,7 @@
 import SeatItem from "./SeatItem";
 
 const SeatManagement = ({ seats }) => {
-   console.log("Seat render");
+   // console.log("Seat render");
    return (
       <>
          <div className="ticket__seatChoice">
