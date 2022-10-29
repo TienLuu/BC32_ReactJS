@@ -1,6 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { createUser } from "../services/actions/index";
+import { createUserSelect } from "../services/actions/index";
 
 const UserInfo = () => {
    const [userSelect, setUserSelect] = useState({
@@ -14,23 +14,30 @@ const UserInfo = () => {
       inputRef.current.focus();
    }, []);
 
-   const handleSubmit = (evt) => {
-      evt.preventDefault();
+   const handleSubmit = (e) => {
+      e.preventDefault();
       if (!userSelect.userName || !userSelect.numberOfSeat) {
          alert("Please Enter your Name and Number of Seats");
          return;
       }
 
-      dispatch(createUser(userSelect));
+      dispatch(
+         createUserSelect({
+            ...userSelect,
+            numberOfSeat: +userSelect.numberOfSeat,
+         })
+      );
       setUserSelect({ userName: "", numberOfSeat: 0 });
    };
 
-   const handleChange = (evt) => {
-      const { name, value } = evt.target;
+   const handleChange = (e) => {
+      const { name, value } = e.target;
+
       setUserSelect((state) => ({ ...state, [name]: value }));
    };
 
-   console.log(userSelect);
+   console.log("User render");
+
    return (
       <>
          <div className="ticket__userInfo">

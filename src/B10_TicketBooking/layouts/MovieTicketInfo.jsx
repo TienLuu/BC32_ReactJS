@@ -1,18 +1,42 @@
 import { useSelector, useDispatch } from "react-redux";
-import { purchase, selectShowTime } from "../services/actions";
-const MovieTicketInfo = () => {
+import { selectShowTime, purchase } from "../services/actions";
+
+const MovieTicketInfo = ({ onPurchaseSuccess, data }) => {
    const ticket = useSelector((state) => state.ticket);
    const dispatch = useDispatch();
 
-   const handleChange = (evt) => {
-      const el = evt.target;
+   // Thay đổi lựa chọn ngày và giờ chiếu
+   const handleChange = (e) => {
+      const el = e.target;
 
-      dispatch(selectShowTime(el.type, el.value));
+      dispatch(selectShowTime({ [el.type]: el.value }));
    };
 
-   const handlePurchase = () => {
+   // Xử lý thanh toán
+   const handlePurchase = async () => {
+      // Kiểm tra seats # rỗng sau đó dispatch action
+      if (!ticket.seats.length) {
+         alert("Chọn chỗ ngồi trước khi thanh toán!");
+         return;
+      }
+
+      // Đổi trạng thái daDat trên data
+      const newData = [...data];
+      newData.forEach((seatLine, indexSeatLine) => {
+         ticket.seats.forEach((item) => {
+            seatLine.danhSachGhe.forEach((seatInfo, indexSeat) => {
+               if (item.soGhe === seatInfo.soGhe) {
+                  newData[indexSeatLine].danhSachGhe[indexSeat].daDat = true;
+               }
+            });
+         });
+      });
+
+      onPurchaseSuccess(newData);
       dispatch(purchase());
    };
+
+   console.log("Movie render");
 
    return (
       <>

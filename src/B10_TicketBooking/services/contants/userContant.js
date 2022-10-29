@@ -1,0 +1,3 @@
+const NAMESPACE = "user";
+
+export const CREATE_USERSELECT = `${NAMESPACE}/CREATE_USERSELECT`;

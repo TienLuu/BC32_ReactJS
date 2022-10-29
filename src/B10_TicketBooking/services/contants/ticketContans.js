@@ -1,0 +1,4 @@
+const NAMESPACE = "ticket";
+
+export const CHOOSE_SEAT = `${NAMESPACE}/CHOOSE_SEAT`;
+export const CHANGE_SHOWTIME = `${NAMESPACE}/CHANGE_SHOWTIME`;

@@ -1,7 +1,7 @@
-import React from "react";
 import SeatItem from "./SeatItem";
 
 const SeatManagement = ({ seats }) => {
+   console.log("Seat render");
    return (
       <>
          <div className="ticket__seatChoice">
@@ -11,16 +11,16 @@ const SeatManagement = ({ seats }) => {
                <span className="seatEmpty">Empty Seat</span>
             </div>
             <div className="ticket__seatList">
-               <div className="screen-light" />
+               <div className="screen-light"></div>
                <div className="wrapper">
-                  {seats.map((seatLine, indexLine) => (
+                  {seats.map((line, indexLine) => (
                      <div key={indexLine} className="seatLine">
-                        <div>{seatLine.hang}</div>
-                        {seatLine.danhSachGhe.map((seat, indexSeat) => (
+                        <div>{line.hang}</div>
+                        {line.danhSachGhe.map((seat, indexSeat) => (
                            <SeatItem
                               key={seat.soGhe}
                               number={indexSeat + 1}
-                              isSeat={seatLine.hang}
+                              isSeat={line.hang}
                               seatInfo={seat}
                            />
                         ))}

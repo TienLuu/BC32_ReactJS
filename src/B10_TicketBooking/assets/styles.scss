@@ -194,10 +194,6 @@ input[type="name"] {
    background: var(--clr-seatSelect);
 }
 
-.seat.active.disabled {
-   pointer-events: none;
-}
-
 .seat.selected {
    background: var(--clr-seatSelected);
    cursor: default;
@@ -205,51 +201,6 @@ input[type="name"] {
 
 .seat.selected::before {
    background: var(--clr-seatSelected);
-}
-
-// .lineA::before {
-//    content: "A";
-//    position: absolute;
-//    left: -36px;
-
-//    font-size: 24px;
-//    color: var(--clr-white);
-// }
-
-.lineB::before {
-   content: "B";
-   position: absolute;
-   left: -36px;
-
-   font-size: 24px;
-   color: var(--clr-white);
-}
-
-.lineC::before {
-   content: "C";
-   position: absolute;
-   left: -36px;
-
-   font-size: 24px;
-   color: var(--clr-white);
-}
-
-.lineD::before {
-   content: "D";
-   position: absolute;
-   left: -36px;
-
-   font-size: 24px;
-   color: var(--clr-white);
-}
-
-.lineE::before {
-   content: "E";
-   position: absolute;
-   left: -36px;
-
-   font-size: 24px;
-   color: var(--clr-white);
 }
 
 .ticket__details,
